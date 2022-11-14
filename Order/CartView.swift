@@ -11,11 +11,27 @@ struct CartView: View {
     var body: some View {
         VStack {
             Text("징바구니에 상품이 존재하지 않습니다.")
-            Button("주문하기", action: {print("주문 완료!")})
-                .foregroundColor(.red)
-                .background(Color.gray)
-                .frame(width: 600)
+                Button {
+                    print("주문 완료~!")
+                } label: {
+                    Text("hihi")
+                        .foregroundColor(.white)
+                }
+                .padding()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(.gray)
+                .cornerRadius(10)
         }
+    }
+}
+
+struct defaultButtonStyle :ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background(.gray)
+            .foregroundColor(.white)
+            .font(.title)
+            .padding()
     }
 }
 
